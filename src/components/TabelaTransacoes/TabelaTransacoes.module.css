@@ -1,0 +1,49 @@
+.tableWrapper {
+  overflow-x: auto;
+  border-radius: 20px;
+  background: rgba(18, 22, 28, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 0.5rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th {
+  text-align: left;
+  padding: 1rem 0.75rem;
+  background: rgba(30, 35, 45, 0.8);
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+.entrada {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.saida {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  color: #f87171;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.deleteBtn:hover {
+  transform: scale(1.1);
+  color: #ef4444;
+}

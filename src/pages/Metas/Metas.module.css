@@ -1,0 +1,205 @@
+.metas {
+  margin-left: 260px;
+  padding: 2rem;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  background: rgba(18, 22, 28, 0.6);
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.filters label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #cbd5e1;
+}
+
+.filters input {
+  background: #1f2937;
+  border: 1px solid #374151;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: white;
+  width: 70px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background: rgba(18, 22, 28, 0.6);
+  padding: 1rem;
+  border-radius: 20px;
+  flex-wrap: wrap;
+}
+
+.form input {
+  background: #1f2937;
+  border: 1px solid #374151;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  color: white;
+  flex: 1;
+  min-width: 180px;
+}
+
+.form button {
+  background: #2dd4bf;
+  color: #0f172a;
+  font-weight: bold;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.form button:hover {
+  background: #14b8a6;
+}
+
+.lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.metaCard {
+  background: rgba(30, 35, 45, 0.7);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 1.2rem;
+  min-width: 280px;
+  flex: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
+}
+
+.metaCard:hover {
+  transform: translateY(-2px);
+}
+
+.metaCard.excedeu {
+  border-left: 4px solid #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.cardHeader h3 {
+  margin: 0;
+  color: #e2e8f0;
+}
+
+.deleteBtn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.deleteBtn:hover {
+  opacity: 1;
+}
+
+.valores {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.gastoNormal {
+  color: #f59e0b;
+}
+
+.gastoExcedido {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+.progressBar {
+  background: #1f2937;
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+  margin: 0.8rem 0;
+}
+
+.progressFill {
+  background: #10b981;
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.progressFill.excedeuFill {
+  background: #ef4444;
+}
+
+.alerta {
+  background: rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #fca5a5;
+  text-align: center;
+}
+
+.refreshBtn {
+  background: #2dd4bf;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #0f172a;
+  transition: 0.2s;
+}
+.refreshBtn:hover {
+  background: #14b8a6;
+}
+
+.metaCard.cumprida {
+  border-left: 4px solid #10b981;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkIcon {
+  font-size: 1.2rem;
+}
+
+.progressFill.cumpridaFill {
+  background: #10b981;
+}
+
+.sucesso {
+  background: rgba(16, 185, 129, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #6ee7b7;
+  text-align: center;
+}
