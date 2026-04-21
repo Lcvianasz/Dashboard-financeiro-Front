@@ -28,3 +28,48 @@
 .form button:hover {
   background: #14b8a6;
 }
+
+.filtros {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+  background: rgba(18, 22, 28, 0.6);
+  padding: 1rem;
+  border-radius: 20px;
+  flex-wrap: wrap;
+}
+
+.filtros label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: #cbd5e1;
+  font-size: 0.8rem;
+}
+
+.filtros input {
+  background: #1f2937;
+  border: 1px solid #374151;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: white;
+  width: 80px;
+  text-align: center;
+}
+
+.limparBtn {
+  background: #4b5563;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: 0.2s;
+  margin-top: 1.3rem;
+}
+
+.limparBtn:hover {
+  background: #6b7280;
+}

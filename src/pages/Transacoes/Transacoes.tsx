@@ -6,6 +6,9 @@ import styles from './Transacoes.module.css';
 
 const Transacoes = () => {
   const [transacoes, setTransacoes] = useState<TransacaoResponse[]>([]);
+  const [transacoesFiltradas, setTransacoesFiltradas] = useState<TransacaoResponse[]>([]);
+  const [mesFiltro, setMesFiltro] = useState(new Date().getMonth() + 1);
+  const [anoFiltro, setAnoFiltro] = useState(new Date().getFullYear());
   const [form, setForm] = useState<TransacaoRequest>({
     descricao: '',
     valor: 0,
@@ -14,6 +17,7 @@ const Transacoes = () => {
     data: new Date().toISOString().split('T')[0],
   });
 
+  // Carregar transações da API
   const carregarTransacoes = useCallback(async () => {
     try {
       const res = await api.get<TransacaoResponse[]>('/transacoes');
@@ -23,10 +27,25 @@ const Transacoes = () => {
     }
   }, []);
 
+  // Efeito para carregar dados iniciais
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     carregarTransacoes();
   }, [carregarTransacoes]);
+
+  // Efeito para aplicar filtro sempre que transações ou filtros mudarem
+  useEffect(() => {
+    const filtrar = () => {
+      const filtradas = transacoes.filter((t) => {
+        const data = new Date(t.data);
+        const mes = data.getMonth() + 1;
+        const ano = data.getFullYear();
+        return mes === mesFiltro && ano === anoFiltro;
+      });
+      setTransacoesFiltradas(filtradas);
+    };
+    filtrar();
+  }, [transacoes, mesFiltro, anoFiltro]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -47,7 +66,7 @@ const Transacoes = () => {
         categoria: '',
         data: new Date().toISOString().split('T')[0],
       });
-      carregarTransacoes();
+      carregarTransacoes(); // recarrega a lista após adicionar
     } catch (error) {
       console.error('Erro ao adicionar transação', error);
     }
@@ -58,13 +77,47 @@ const Transacoes = () => {
       await api.delete(`/transacoes/${id}`);
       carregarTransacoes();
     } catch (error) {
-      console.error('Erro ao deletar', error);
+      console.error('Erro ao deletar transação', error);
     }
+  };
+
+  const limparFiltros = () => {
+    setMesFiltro(new Date().getMonth() + 1);
+    setAnoFiltro(new Date().getFullYear());
   };
 
   return (
     <div className={styles.transacoes}>
       <h1>Gerenciar Transações</h1>
+
+      {/* Filtros por mês/ano */}
+      <div className={styles.filtros}>
+        <label>
+          Mês:
+          <input
+            type="number"
+            value={mesFiltro}
+            onChange={(e) => setMesFiltro(Number(e.target.value))}
+            min={1}
+            max={12}
+          />
+        </label>
+        <label>
+          Ano:
+          <input
+            type="number"
+            value={anoFiltro}
+            onChange={(e) => setAnoFiltro(Number(e.target.value))}
+            min={2020}
+            max={2030}
+          />
+        </label>
+        <button onClick={limparFiltros} className={styles.limparBtn}>
+          Limpar Filtros
+        </button>
+      </div>
+
+      {/* Formulário de adição */}
       <form className={styles.form} onSubmit={handleSubmit}>
         <input
           name="descricao"
@@ -96,7 +149,9 @@ const Transacoes = () => {
         <input name="data" type="date" value={form.data} onChange={handleChange} required />
         <button type="submit">Adicionar</button>
       </form>
-      <TabelaTransacoes transacoes={transacoes} onDelete={handleDelete} />
+
+      {/* Tabela de transações filtradas */}
+      <TabelaTransacoes transacoes={transacoesFiltradas} onDelete={handleDelete} />
     </div>
   );
 };
