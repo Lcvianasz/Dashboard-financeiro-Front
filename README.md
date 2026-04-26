@@ -71,3 +71,114 @@ export default defineConfig([
   },
 ])
 ```
+
+## 📄 README do Frontend (`README-frontend.md`)
+
+```markdown
+# Dashboard Financeiro - Frontend
+
+Interface web para controle financeiro pessoal e carteira de investimentos.
+
+## 📋 Tecnologias
+
+- React 18
+- TypeScript
+- Vite
+- Axios
+- React Router DOM
+- Recharts (gráficos)
+- Lucide React (ícones)
+- CSS Modules + CSS customizado
+
+## 🚀 Funcionalidades
+
+- ✅ Dashboard com resumo de receitas/despesas e gráficos
+- ✅ Gerenciamento de metas financeiras
+- ✅ Lançamento de transações (entrada/saída)
+- ✅ Carteira de investimentos (visualização, compra, venda)
+- ✅ Cotação de ativos em tempo real (via API integrada)
+- ✅ Gráfico de rentabilidade por ativo
+- ✅ Layout responsivo e tema escuro
+
+## 🛠️ Pré-requisitos
+
+- Node.js 18+
+- npm ou yarn
+- Backend rodando em `http://localhost:8080`
+
+## ⚙️ Instalação e execução
+
+1. **Clone o repositório**
+```bash
+git clone https://github.com/seu-usuario/dashboard-financeiro-frontend.git
+cd dashboard-financeiro-frontend
+
+    Instale as dependências
+
+bash
+
+npm install
+# ou
+yarn install
+
+    Configure o proxy (opcional)
+    O arquivo vite.config.ts já possui proxy para /api apontando para http://localhost:8080.
+
+    Execute o projeto
+
+bash
+
+npm run dev
+
+A aplicação estará disponível em http://localhost:3000.
+📁 Estrutura do Projeto
+text
+
+src/
+├── api/               – Configuração do Axios e serviços de API
+├── components/        – Componentes reutilizáveis (Sidebar, Tabela, Cards, etc.)
+├── hooks/             – Hooks personalizados (useCarteira, useCotacao)
+├── pages/             – Páginas da aplicação (Dashboard, Metas, Transacoes, Investimentos)
+├── types/             – Definições TypeScript
+├── utils/             – Funções utilitárias (formatação de moeda, percentual)
+├── App.tsx            – Rotas principais
+└── main.tsx           – Ponto de entrada
+
+🧪 Scripts Disponíveis
+
+    npm run dev – Inicia o servidor de desenvolvimento (porta 3000)
+
+    npm run build – Gera a build de produção
+
+    npm run preview – Visualiza a build localmente
+
+    npm run lint – Executa o ESLint
+
+🔗 Integração com o Backend
+
+Certifique-se de que o backend esteja rodando na porta 8080.
+O frontend utiliza um proxy para evitar problemas de CORS:
+ts
+
+// vite.config.ts
+proxy: {
+  '/api': {
+    target: 'http://localhost:8080',
+    changeOrigin: true,
+  }
+}
+
+🎨 Personalização
+
+    As cores e estilos podem ser alterados em src/index.css e nos CSS modules de cada componente.
+
+    O tema escuro é padrão, mas pode ser modificado globalmente.
+
+📌 Observações
+
+    O header X-User-Id: 1 é adicionado automaticamente em todas as requisições via interceptor do Axios (para testes).
+
+    Os gráficos são gerados com Recharts e respondem aos dados reais da carteira.
+
+👨‍💻 Autor
+Lucas Viana Souza
