@@ -1,12 +1,13 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Sidebar.module.css';
-import { LayoutDashboard, Target, Receipt, TrendingUp, TrendingDown } from 'lucide-react';
+import { LayoutDashboard, Target, Receipt, TrendingUp, TrendingDown, LineChart } from 'lucide-react';
 
 const Sidebar = () => {
   const menuItems = [
     { path: '/', label: 'Dashboard', icon: LayoutDashboard },
     { path: '/metas', label: 'Metas', icon: Target },
     { path: '/transacoes', label: 'Transações', icon: Receipt },
+    { path: '/investimentos', label: 'Investimentos', icon: LineChart }, // Novo item
   ];
 
   return (
